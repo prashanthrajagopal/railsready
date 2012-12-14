@@ -69,7 +69,7 @@ echo " * Ruby $ruby_version_string"
 echo " * Imagemagick"
 echo " * libs needed to run Rails (sqlite, mysql, etc)"
 echo " * Bundler, Passenger, and Rails gems"
-echo " * Git
+echo " * Git"
 echo " * Java 6 Update 29, Memcached, SVN"
 
 echo -e "\nThis script is always changing."
@@ -97,7 +97,7 @@ fi
 
 # Ask which version of ruby to install
 echo -e "\n"
-echo "Build Ruby or install RVM?"
+echo "Which version of ruby to install?"
 echo "=> 1. Ruby 1.8.7 - ree"
 echo "=> 2. Ruby 1.9.3 - p327"
 echo -n "Select your Ruby type [1 or 2]? "
