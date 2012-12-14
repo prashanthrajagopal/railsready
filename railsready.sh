@@ -95,6 +95,31 @@ else
   exit 1
 fi
 
+# Ask which version of ruby to install
+echo -e "\n"
+echo "Build Ruby or install RVM?"
+echo "=> 1. Ruby 1.8.7 - ree"
+echo "=> 2. Ruby 1.9.3 - p327"
+echo -n "Select your Ruby type [1 or 2]? "
+read version
+
+if [ $version -eq 1 ] ; then
+  ruby_version="ree"
+  ruby_version_string="ree-1.8.7-2012.02"
+  ruby_source_url="https://www.dropbox.com/s/1c471kq7oj7agh0/ruby-enterprise-1.8.7-2012.02.tar.gz?dl=1"
+  ruby_source_tar_name="ruby-enterprise-1.8.7-2012.02.tar.gz"
+  ruby_source_dir_name="ruby-enterprise-1.8.7-2012.02"
+elif [ $version -eq 2 ] ; then
+  ruby_version="1.9.3"
+  ruby_version_string="1.9.3-p327"
+  ruby_source_url="http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p327.tar.gz"
+  ruby_source_tar_name="ruby-1.9.3-p327.tar.gz"
+  ruby_source_dir_name="ruby-1.9.3-p327"
+else
+  echo -e "\n\n!!! Must choose to build Ruby or install RVM, exiting !!!"
+  exit 1
+fi
+
 echo -e "\n=> Creating install dir..."
 cd && mkdir -p railsready/src && cd railsready && touch install.log
 echo "==> done..."
