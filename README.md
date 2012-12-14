@@ -8,16 +8,17 @@
 #
 ###To run:
 ####Linux
-  * `wget --no-check-certificate https://raw.github.com/joshfng/railsready/master/railsready.sh && bash railsready.sh`
+  * `wget --no-check-certificate https://raw.github.com/prashanthrajagopal/railsready/master/railsready.sh && bash railsready.sh`
 
 ####OSX
-  * `curl -O https://raw.github.com/joshfng/railsready/master/railsready.sh && bash railsready.sh`
+  * `curl -O https://raw.github.com/prashanthrajagopal/railsready/master/railsready.sh && bash railsready.sh`
 
 The script will ask if you want to build Ruby from source or install RVM
 
 ###What this gives you:
   * Homebrew (OSX only)
   * Ruby 1.9.3 latest patch level (installed to /usr/local/bin/ruby) or RVM running 1.9.3 latest patch level
+  * OR Ruby 1.8.7 - ree for legacy users with UBUNTU only... 
   * Imagemagick
   * libs needed to run Rails (sqlite, mysql, etc)
   * Bundler, Passenger, and Rails gems
@@ -40,4 +41,11 @@ rvmsudo passenger-install-nginx-module
 #
 ####Rails Ready now supports a "plugin" type system. The distro is detected and a corresponding "recipe" file is pulled down to run the distro specific setup steps. Check the recipes dir to see if your distro is supported. If you would like to add support for a system fork the repo, write a recipe, and submit a pull request. Take a look at recipes/ubuntu.sh for an idea of what to model your recipe after.
 
-If you use this or have any suggestions let me know joshfng@gmail.com or @joshfng on Twitter
+If you use this or have any suggestions let me know at prashanth.rajagopal@icloud.com
+
+The original railsready is written by joshfng@gmail.com. I have just made a few changes to enable installation of legacy ruby 1.8.7.
+This script also installs jdk 6 update 29. 
+
+Java Installation happens only in Ubuntu as of now. 
+
+Thanks to joshfng@gmail.com.
