@@ -82,9 +82,9 @@ sudo mkdir /usr/lib/jvm
 sudo chown -R $(whoami):$(whoami) /usr/lib/jvm
 if(uname -m=="x86_64")
 then 
-cd /usr/lib/jvm; wget https://www.dropbox.com/s/hihhg98qksi2301/jdk-6u29-linux-x64.bin?dl=1
+cd /usr/lib/jvm; wget https://www.dropbox.com/s/r5ewiyqhws7fhgt/jdk-6u29-linux-x64.bin?dl=1
 else
-cd /usr/lib/jvm; wget https://www.dropbox.com/s/jsl641km15n6wqc/jdk-6u29-linux-i586.bin?dl=1
+cd /usr/lib/jvm; wget https://www.dropbox.com/s/qvq7yqnomoiu5uo/jdk-6u29-linux-i586.bin?dl=1
 fi
 sudo chmod +x /usr/lib/jvm/jdk-6*
 cd /usr/lib/jvm; sudo ./jdk-6u29*
