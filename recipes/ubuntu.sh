@@ -55,3 +55,39 @@ echo "==> done..."
 echo -e "\n=> Installing git..."
 sudo $pm -y install git-core >> $log_file 2>&1
 echo "==> done..."
+
+# Install memcached
+echo -e "\n=> Installing git..."
+sudo $pm -y install memcached >> $log_file 2>&1
+echo "==> done..."
+
+# Install SVN
+echo -e "\n=> Installing SVN..."
+sudo $pm -y install subversion >> $log_file 2>&1
+echo "==> done..."  
+
+# Install dependancies for nokogiri and rmagick gems
+echo -e "\n=> Installing dependancies for nokogiri and rmagick gems..."
+sudo $pm -y install libxslt-dev libxml2-dev libmagickwand-dev >> $log_file 2>&1
+echo "==> done..."  
+
+# Install vim
+echo -e "\n=> Installing vim..."
+sudo $pm -y install vim >> $log_file 2>&1
+echo "==> done..."  
+
+# Install jdk6u29
+echo -e "\n=> Installing jdk6u29..."
+sudo mkdir /usr/lib/jvm
+sudo chown -R $(whoami):$(whoami) /usr/lib/jvm
+if(uname -m=="x86_64")
+then 
+cd /usr/lib/jvm; wget https://www.dropbox.com/s/hihhg98qksi2301/jdk-6u29-linux-x64.bin?dl=1
+else
+cd /usr/lib/jvm; wget https://www.dropbox.com/s/jsl641km15n6wqc/jdk-6u29-linux-i586.bin?dl=1
+fi
+sudo chmod +x /usr/lib/jvm/jdk-6*
+cd /usr/lib/jvm; sudo ./jdk-6u29*
+echo "JAVA_HOME=/usr/lib/jvm/jdk1.6.0_29" >> /etc/bash.bashrc
+echo "export PATH=$PATH:$JAVA_HOME/bin" >> /etc/bash.bashrc
+echo "==> done..."  
