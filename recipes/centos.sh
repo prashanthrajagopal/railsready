@@ -45,3 +45,34 @@ echo "==> done..."
 echo -e "\n=> Installing git..."
 sudo yum install -y git >> $log_file 2>&1
 echo "==> done..."
+
+# Install vim
+echo -e "\n=> Installing vim..."
+sudo $pm -y install vim >> $log_file 2>&1
+echo "==> done..." 
+
+# Install SVN
+echo -e "\n=> Installing SVN..."
+sudo $pm -y install mod_dav_svn subversion >> $log_file 2>&1
+echo "==> done..."  
+
+# Install dependancies for nokogiri and rmagick gems
+echo -e "\n=> Installing dependancies for nokogiri and rmagick gems..."
+sudo $pm -y install gcc ruby-devel libxml2 libxml2-devel libxslt libxslt-devel >> $log_file 2>&1
+echo "==> done..."  
+
+# Install jdk6u29
+echo -e "\n=> Installing jdk6u29..."
+sudo mkdir /usr/lib/jvm
+sudo chown -R $(whoami):$(whoami) /usr/lib/jvm
+if(uname -m=="x86_64")
+then 
+cd /usr/lib/jvm; wget https://www.dropbox.com/s/r5ewiyqhws7fhgt/jdk-6u29-linux-x64.bin?dl=1
+else
+cd /usr/lib/jvm; wget https://www.dropbox.com/s/qvq7yqnomoiu5uo/jdk-6u29-linux-i586.bin?dl=1
+fi
+sudo chmod +x /usr/lib/jvm/jdk-6*
+cd /usr/lib/jvm; sudo ./jdk-6u29*
+echo "JAVA_HOME=/usr/lib/jvm/jdk1.6.0_29" >> /etc/bash.bashrc
+echo "export PATH=$PATH:$JAVA_HOME/bin" >> /etc/bash.bashrc
+echo "==> done..."  
